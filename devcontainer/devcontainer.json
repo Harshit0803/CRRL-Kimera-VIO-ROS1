@@ -10,9 +10,10 @@
 	},
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
 	"workspaceFolder": "/workspace",
-	"mounts": ["source=/home/crrlmsi1/semantic_seg,target=/seg_workspace,type=bind"],
+	"mounts": ["source=/home/crrlmsi1/semantic_seg,target=/seg_workspace,type=bind", "source=/home/crrlmsi1/getting-started2,target=/gettingWorkspace,type=bind"],
 	"runArgs": [
 		"--privileged",
+		"--gpus=all",
 		"--rm=true",
 		"--shm-size=10g",
 		"--net=my-net",
