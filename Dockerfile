@@ -107,7 +107,7 @@ RUN rm -rf CRRL-Kimera-VIO-ROS1
 WORKDIR /kimera_workspace/catkin_ws
 
 
-RUN /bin/bash -c "source $ROS_ROOT/setup.bash && catkin build -j17"
+RUN /bin/bash -c "source $ROS_ROOT/setup.bash && catkin build"
 
 COPY /launch/zedm_kimera_vio_ros.launch /kimera_workspace/catkin_ws/src/Kimera-VIO-ROS/launch/
 COPY /launch/cloudFormation.launch /kimera_workspace/catkin_ws/src/Kimera-VIO-ROS/launch/
