@@ -102,7 +102,7 @@ RUN wstool update
 # RUN rosdep install --from-paths . --ignore-src -r -y
 
 # RUN wstool update
-RUN rm -rf Kimera-VIO-ROS-MOD
+RUN rm -rf CRRL-Kimera-VIO-ROS1
 
 WORKDIR /kimera_workspace/catkin_ws
 
