@@ -50,7 +50,7 @@ file and include this one to launch KimeraVIO on the dataset of your choice -->
   <!-- Parameters -->
   <!-- each dataset has its own set of parameter files -->
   <!-- the parameters are set in param folder, ordered by the dataset's name -->
-  <arg name="params_folder" default="$(find kimera_vio)/params/$(arg dataset_name)"/>
+  <arg name="params_folder" default="$(find kimera_vio_ros)/params/$(arg dataset_name)"/>
 
   <!-- you can optionally specify an alternative location -->
   <arg name="sensor_folder" default=""/>
