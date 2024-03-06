@@ -10,7 +10,7 @@
 	},
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
 	"workspaceFolder": "/workspace",
-	"mounts": ["source=/home/harshit/Downloads,target=/download_worksapce,type=bind"],
+	"mounts": ["source=/home/crrlmsi1/semantic_seg,target=/seg_workspace,type=bind"],
 	"runArgs": [
 		"--privileged",
 		"--rm=true",
