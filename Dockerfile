@@ -74,9 +74,6 @@ RUN apt-get install -y \
       python3-wstool python3-catkin-tools libtool\
       libtbb-dev 
 
-RUN pip3 install open3d --ignore-installed PyYAML
-RUN pip3 install transforms3d
-
 
 WORKDIR /kimera_workspace
 
@@ -110,8 +107,12 @@ RUN rm -rf CRRL-Kimera-VIO-ROS1
 WORKDIR /kimera_workspace/catkin_ws
 
 
-RUN /bin/bash -c "source $ROS_ROOT/setup.bash && catkin build -j24"
+RUN /bin/bash -c "source $ROS_ROOT/setup.bash && catkin build -j17"
 
+COPY /launch/zedm_kimera_vio_ros.launch /kimera_workspace/catkin_ws/src/Kimera-VIO-ROS/launch/
+COPY /launch/cloudFormation.launch /kimera_workspace/catkin_ws/src/Kimera-VIO-ROS/launch/
+COPY /launch/kimera_vio_ros.launch /kimera_workspace/catkin_ws/src/Kimera-VIO-ROS/launch/
+COPY params/zedm /kimera_workspace/catkin_ws/src/Kimera-VIO/params/zedm
 ###############
 
 # RUN catkin build -j3 --cmake-args -DCMAKE_BUILD_TYPE=Release 
