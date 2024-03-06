@@ -74,6 +74,9 @@ RUN apt-get install -y \
       python3-wstool python3-catkin-tools libtool\
       libtbb-dev 
 
+RUN pip3 install open3d --ignore-installed PyYAML
+RUN pip3 install transforms3d
+
 
 WORKDIR /kimera_workspace
 
