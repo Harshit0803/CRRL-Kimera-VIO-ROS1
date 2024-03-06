@@ -40,7 +40,7 @@
     version: master
 - git:
     local-name: Kimera-VIO-ROS
-    uri: https://github.com/MIT-SPARK/Kimera-VIO-ROS.git
+    uri: https://github.com/Harshit0803/CRRL-Kimera-VIO-ROS1.git
     version: master
 - git:
     local-name: glog_catkin
