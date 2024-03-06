@@ -28,6 +28,8 @@ RUN python3 -m pip install numpy --upgrade
 RUN python3 -m pip install --upgrade pip && \
     python3 -m pip install scipy cuda-python
 
+RUN python3 -m pip install -v tensorrt
+
 # Specific version of Eigen (replace 'your_eigen_version' with the actual version number)
 RUN apt-get update && apt-get install -y libeigen3-dev
 
