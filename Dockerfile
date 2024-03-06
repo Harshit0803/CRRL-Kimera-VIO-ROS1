@@ -89,11 +89,11 @@ RUN echo 'source /kimera_workspace/catkin_ws/devel/setup.bash' >> ~/.bashrc
 
 WORKDIR /kimera_workspace/catkin_ws/src
 
-RUN git clone https://github.com/Harshit0803/Kimera-VIO-ROS-MOD.git
+RUN git clone https://github.com/Harshit0803/CRRL-Kimera-VIO-ROS1.git
 
 RUN wstool init
 
-RUN wstool merge Kimera-VIO-ROS-MOD/install/kimera_vio_ros_https.rosinstall
+RUN wstool merge CRRL-Kimera-VIO-ROS1/install/kimera_vio_ros_https.rosinstall
 
 RUN wstool update
 
