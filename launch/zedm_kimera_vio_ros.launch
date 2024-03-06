@@ -1,0 +1,58 @@
+<launch>
+<arg name="robot_name" default=""/>
+<arg name="dataset_name"      default="zedm"/>
+<arg name="verbosity"         default="0"/>
+<arg name="online"            default="true"/>
+<arg name="use_lcd"           default="false"/>
+<arg name="use_external_odom" default="false"/>
+
+
+<arg name="do_coarse_temporal_sync" default="false"/>
+<arg name="do_fine_temporal_sync" default="false"/>
+
+
+<param name="use_sim_time" value="true"/>
+
+
+<arg name="log_output" default="false"/>
+<arg name="log_output_path"
+     default="$(find kimera_vio_ros)/output_logs/$(arg dataset_name)"
+     if="$(arg log_output)"/>
+<arg name="log_gt_data" default="false"/>
+<!-- <arg name="gt_topic"    default="/$(arg robot_name)/odom"/> -->
+<arg name="gt_topic"    default=""/>
+
+
+<!-- Change rosbag path if online argument is false -->
+<arg name="rosbag_path" default="" unless="$(arg online)"/>
+
+
+<!-- Frame IDs -->
+<arg name="odom_frame_id" default="world"/>
+<arg name="map_frame_id" default="map"/>
+<arg name="base_link_frame_id" default="base_link"/>
+<arg name="left_cam_frame_id"  default="zedm_left_camera_optical_frame"/>
+<arg name="right_cam_frame_id" default="zedm_right_camera_optical_frame"/>
+
+
+<!-- Subscriber Topics -->
+<arg name="left_cam_topic"        default="/zedm/zed_node/left/image_rect_color"/>
+<arg name="right_cam_topic"       default="/zedm/zed_node/right/image_rect_color"/>
+<arg name="imu_topic"             default="/zedm/zed_node/imu/data"/>
+<!-- <arg name="external_odom_topic"   default="/$(arg robot_name)/odom"/> -->
+<arg name="external_odom_topic"   default=""/>
+<arg name="depth_cam_topic"       default="/zedm/zed_node/depth/depth_registered"/>
+
+<!-- Empty string ("") means no ground-truth available. Used for init if
+ requested to do ground-truth initialization. -->
+<arg name="odometry_ground_truth_topic" default="$(arg gt_topic)"/>
+
+<!-- Launch actual pipeline -->
+<include file="$(find kimera_vio_ros)/launch/kimera_vio_ros.launch"
+  pass_all_args="true"/>
+
+<include file="$(find kimera_vio_ros)/launch/cloudFormation.launch"
+  pass_all_args="true"/>
+
+
+</launch>
