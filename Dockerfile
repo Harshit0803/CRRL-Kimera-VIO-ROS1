@@ -107,7 +107,7 @@ RUN rm -rf CRRL-Kimera-VIO-ROS1
 WORKDIR /kimera_workspace/catkin_ws
 
 
-RUN /bin/bash -c "source $ROS_ROOT/setup.bash && catkin build -j4"
+RUN /bin/bash -c "source $ROS_ROOT/setup.bash && catkin build -j24"
 
 ###############
 
