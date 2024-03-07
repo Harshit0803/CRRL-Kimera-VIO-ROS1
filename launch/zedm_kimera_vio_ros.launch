@@ -43,6 +43,10 @@
 <arg name="external_odom_topic"   default=""/>
 <arg name="depth_cam_topic"       default="/zedm/zed_node/depth/depth_registered"/>
 
+ <!-- Throttle node for semantic_pointcloud topic -->
+<node pkg="topic_tools" type="throttle" name="throttle_semantic_pointcloud" args="messages /semantic_pointcloud 5 /semantic_pointcloud2" output="screen"/>
+
+
 <!-- Empty string ("") means no ground-truth available. Used for init if
  requested to do ground-truth initialization. -->
 <arg name="odometry_ground_truth_topic" default="$(arg gt_topic)"/>
