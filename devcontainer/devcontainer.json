@@ -1,38 +1,47 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-	"name": "Kimera docker",
-	"build": {
-		// Sets the run context to one level up instead of the .devcontainer folder.
-		"context": "..",
-		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
-		"dockerfile": "../Dockerfile"
-	},
-	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-	"workspaceFolder": "/workspace",
-	"mounts": ["source=/home/crrlmsi1/semantic_seg,target=/seg_workspace,type=bind", "source=/home/crrlmsi1/getting-started2,target=/gettingWorkspace,type=bind"],
-	"runArgs": [
-		"--privileged",
-		"--gpus=all",
-		"--rm=true",
-		"--shm-size=10g",
-		"--net=my-net",
-		"-e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix",
-		"-e DISPLAY=$DISPLAY"
-	]
+   "name": "Kimera docker",
+   "initializeCommand": "ls",
+   "build": {
+       // Sets the run context to one level up instead of the .devcontainer folder.
+       "context": "..",
+       // Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+       "dockerfile": "../Dockerfile"
+   },
+   // "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+   // "workspaceFolder": "/workspace",
+   // "mounts": ["source=/home/crrlmsi1/semantic_seg,target=/seg_workspace,type=bind", "source=/home/crrlmsi1/getting-started2,target=/gettingWorkspace,type=bind"],
+   "runArgs": [
+       "--privileged",
+       "--runtime=nvidia",
+       "--rm=true",
+       "--shm-size=10g",
+       "--net=my-net",
+       "-e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix",
+       "-e DISPLAY=$DISPLAY"
+   ]
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+   // Features to add to the dev container. More info: https://containers.dev/features.
+   // "features": {},
 
-	// Uncomment the next line to run commands after the container is created.
-	// "postCreateCommand": "cat /etc/os-release",
 
-	// Configure tool-specific properties.
-	// "customizations": {},
+   // Use 'forwardPorts' to make a list of ports inside the container available locally.
+   // "forwardPorts": [],
 
-	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "devcontainer"
+
+   // Uncomment the next line to run commands after the container is created.
+   // "postCreateCommand": "cat /etc/os-release",
+
+
+   // Configure tool-specific properties.
+   // "customizations": {},
+
+
+   // Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
+   // "remoteUser": "devcontainer"
 }
+
+
+
