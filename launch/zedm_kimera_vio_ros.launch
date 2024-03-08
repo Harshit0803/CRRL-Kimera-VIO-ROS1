@@ -51,6 +51,7 @@
 <include file="$(find kimera_vio_ros)/launch/kimera_vio_ros.launch"
   pass_all_args="true"/>
 
+<arg name="run_semantics"        default="false"/>
 <include file="$(find kimera_vio_ros)/launch/cloudFormation.launch"
   pass_all_args="true"/>
 
