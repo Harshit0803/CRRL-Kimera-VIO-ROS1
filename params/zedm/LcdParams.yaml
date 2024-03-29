@@ -43,7 +43,7 @@ nlevels: 10
 edge_threshold: 31
 first_level: 0
 WTA_K: 4
-score_type_id: 1
+score_type_id: 0
 patch_sze: 31
 fast_threshold: 10
 
