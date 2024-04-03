@@ -11,7 +11,7 @@ file and include this one to launch KimeraVIO on the dataset of your choice -->
  <arg name="online" default="true" />
  <!-- !!!! VIT !!!! This should be true when running online with a rosbag publishing clock,
  but false when parsing rosbag? Needs rosbag to be publishing clock -->
- <arg name="should_use_sim_time" default="true"/>
+ <arg name="should_use_sim_time" default="false"/>
  <param name="use_sim_time" value="$(arg should_use_sim_time)"/>
  <arg name="rosbag_path" unless="$(arg online)"/>
 
@@ -55,7 +55,7 @@ file and include this one to launch KimeraVIO on the dataset of your choice -->
  <!-- Parameters -->
  <!-- each dataset has its own set of parameter files -->
  <!-- the parameters are set in param folder, ordered by the dataset's name -->
- <arg name="params_folder" default="$(find kimera_vio)/params/$(arg dataset_name)"/>
+ <arg name="params_folder" default="$(find kimera_vio_ros)/params/$(arg dataset_name)"/>
 
 
  <!-- you can optionally specify an alternative location -->
