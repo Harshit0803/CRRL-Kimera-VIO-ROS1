@@ -1,15 +1,15 @@
 %YAML:1.0
 # LoopClosureDetector parameters:
 use_nss: 1
-alpha: 0.5
-min_temporal_matches: 3
-recent_frames_window: 20
+alpha: 0.1
+min_temporal_matches: 2
+recent_frames_window: 50
 max_db_results: 50
 min_nss_factor: 0.005
 min_matches_per_island: 1
-max_intraisland_gap: 3
-max_nrFrames_between_islands: 3
-max_nrFrames_between_queries: 2
+max_intraisland_gap: 6
+max_nrFrames_between_islands: 6
+max_nrFrames_between_queries: 4
 
 
 
@@ -18,7 +18,7 @@ max_nrFrames_between_queries: 2
 
 
 
-refine_pose: 1
+refine_pose: 0
 
 
 
@@ -27,7 +27,7 @@ refine_pose: 1
 
 
 
-lowe_ratio: 0.7
+lowe_ratio: 0.9
 matcher_type: 3
 
 
@@ -37,15 +37,15 @@ matcher_type: 3
 
 
 
-nfeatures: 500
+nfeatures: 600
 scale_factor: 1.2
-nlevels: 8
+nlevels: 10
 edge_threshold: 31
 first_level: 0
-WTA_K: 2
+WTA_K: 4
 score_type_id: 0
 patch_sze: 31
-fast_threshold: 20
+fast_threshold: 10
 
 
 
@@ -77,7 +77,7 @@ gnc_alpha: 0.7
 
 
 
-max_lc_cached_before_optimize: 10
+max_lc_cached_before_optimize: 30
 
 
 
@@ -109,13 +109,13 @@ min_nr_2d3d_inliers: 20
 
 ransac_threshold_2d2d: 1e-06
 ransac_threshold_3d3d: 0.3
-ransac_threshold_2d3d: 1.0 # pixels
+ransac_threshold_2d3d: 2.0 # pixels
 ransac_use_1point_3d3d: 1  # if 1, use rotation. else arun method
 ransac_use_2point_2d2d: 0
 # pose_recovery_type options:
 #   0: 3d3d (Arun)
 #   1: PnP (opengv)
-pose_recovery_type: 0
+pose_recovery_type: 1
 ransac_max_iterations: 500
 ransac_probability: 0.995
 ransac_randomize: 0
@@ -128,7 +128,4 @@ optimize_2d3d_pose_from_inliers: 0
 
 # 2D-2D pose estimation method
 ransac_2d2d_algorithm: 0 # Stewenius
-ransac_2d3d_algorithm: 3 # EPNP
-
-
-
+ransac_2d3d_algorithm: 5 # UP3P
