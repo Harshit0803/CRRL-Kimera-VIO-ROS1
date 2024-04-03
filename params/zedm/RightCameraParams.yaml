@@ -3,12 +3,6 @@
 camera_id: right_cam
 
 
-
-
-
-
-
-
 # Sensor extrinsics wrt. the body-frame.
 T_BS:
  cols: 4
@@ -32,37 +26,11 @@ T_BS:
 
 
 
-
-#  data: [0.999975, 0.006980, -0.000890, 0.003000,
-#       -0.006984, 0.999963, -0.005046, 0.97,
-#       0.000854, 0.005052, 0.999987, 0.00,
-#       0.000000, 0.000000, 0.000000, 1.000000]
-
-
-
-
-
-
-
-
 # Camera specific definitions.
 rate_hz: 60
-resolution: [640, 360]
+resolution: [1280,720]
 camera_model: pinhole
-intrinsics: [338.28546142578125, 338.28546142578125, 320.6593933105469, 182.6080322265625]
+intrinsics: [698.9550170898438, 698.9550170898438, 634.3099975585938, 359.2455139160156]
 # intrinsics: [338.28546142578125,  320.6593933105469, 338.28546142578125, 182.6080322265625]
-distortion_model: plumb_bob
-distortion_coefficients: [0.0, 0.0, 0.0, 0.0, 0.0]
-
-
-
-
-
-
-
-
-
-
-
-
-
+distortion_model: radtan
+distortion_coefficients: [-0.17226199805736542, 0.025458699092268944, 0.0, 0.0, 0.0]
