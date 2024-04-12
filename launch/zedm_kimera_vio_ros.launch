@@ -36,8 +36,8 @@
 
 
 <!-- Subscriber Topics -->
-<arg name="left_cam_topic"        default="/zedm/zed_node/left/image_rect_color"/>
-<arg name="right_cam_topic"       default="/zedm/zed_node/right/image_rect_color"/>
+<arg name="left_cam_topic"        default="/zedm/zed_node/left_raw/image_raw_color"/>
+<arg name="right_cam_topic"       default="/zedm/zed_node/right_raw/image_raw_color"/>
 <arg name="imu_topic"             default="/zedm/zed_node/imu/data"/>
 <!-- <arg name="external_odom_topic"   default="/$(arg robot_name)/odom"/> -->
 <arg name="external_odom_topic"   default=""/>
