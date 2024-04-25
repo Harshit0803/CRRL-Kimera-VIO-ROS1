@@ -12,13 +12,6 @@ initialVelocitySigma: 0.001
 initialAccBiasSigma: 0.1
 initialGyroBiasSigma: 0.01
 
-
-
-
-
-
-
-
 # VISION PARAMETERS ###########################################################
 ## Smart Factors ##
 #
@@ -38,13 +31,6 @@ rankTolerance: 1
 #   */
 landmarkDistanceThreshold: 20
 
-
-
-
-
-
-
-
 # DynamicOutlierRejection:
 #  /**
 #   * If this is nonnegative the we will check if the average reprojection error
@@ -54,12 +40,6 @@ landmarkDistanceThreshold: 20
 outlierRejection: 3
 # ///< threshold to decide whether to re-triangulate
 retriangulationThreshold: 0.001
-
-
-
-
-
-
 
 
 ## Noise models ##
@@ -74,28 +54,14 @@ regularityNoiseSigma: 0.03
 regularityNormType: 1
 regularityNormParam: 0.04
 
-
-
-
-
-
-
-
 ## Between Stereo Factors ##
 addBetweenStereoFactors: 1
 betweenRotationPrecision: 0 # Inverse of variance.
 betweenTranslationPrecision: 100 # 1/(0.1*0.1)
 
-
-
-
-
-
-
-
 # OPTIMIZATION PARAMETERS #####################################################
 relinearizeThreshold: 0.01
-relinearizeSkip: 5
+relinearizeSkip: 1
 zero_velocity_precision: 1000
 no_motion_position_precision: 1000
 no_motion_rotation_precision: 10000
