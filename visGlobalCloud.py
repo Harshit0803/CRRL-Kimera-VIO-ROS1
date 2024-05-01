@@ -218,9 +218,9 @@ class VisualizeGlobalPcd():
 
         rospy.Subscriber("/kimera_vio_ros/pose_graph", PoseGraph, self.loop_closure)
         
-        ts = message_filters.ApproximateTimeSynchronizer([pose_graph_sub, pointcloud_sub], 500, 0.1, allow_headerless=True)
+        ts = message_filters.ApproximateTimeSynchronizer([pose_graph_sub, pointcloud_sub], 50, 0.1, allow_headerless=True)
         ts.registerCallback(self.callback)
-        self.pub = rospy.Publisher("/global_pointcloud", PointCloud2, queue_size=10)
+        self.pub = rospy.Publisher("/global_pointcloud", PointCloud2, queue_size=50)
         
         rospy.spin()
 
