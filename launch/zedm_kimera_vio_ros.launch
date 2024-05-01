@@ -36,12 +36,12 @@
 
 
 <!-- Subscriber Topics -->
-<arg name="left_cam_topic"        default="/zedm/zed_node/left/image_rect_color"/>
-<arg name="right_cam_topic"       default="/zedm/zed_node/right/image_rect_color"/>
+<arg name="left_cam_topic"        default="/zedm/zed_node/left_raw/image_raw_color"/>
+<arg name="right_cam_topic"       default="/zedm/zed_node/right_raw/image_raw_color"/>
 <arg name="imu_topic"             default="/zedm/zed_node/imu/data"/>
 <!-- <arg name="external_odom_topic"   default="/$(arg robot_name)/odom"/> -->
 <arg name="external_odom_topic"   default=""/>
-<arg name="depth_cam_topic"       default="/zedm/zed_node/depth/depth_registered"/>
+<!-- <arg name="depth_cam_topic"       default="/zedm/zed_node/depth/depth_registered"/> -->
 
 <!-- Empty string ("") means no ground-truth available. Used for init if
  requested to do ground-truth initialization. -->
@@ -51,8 +51,8 @@
 <include file="$(find kimera_vio_ros)/launch/kimera_vio_ros.launch"
   pass_all_args="true"/>
 
-<!-- <include file="$(find kimera_vio_ros)/launch/cloudFormation.launch"
-  pass_all_args="true"/> -->
+<include file="$(find kimera_vio_ros)/launch/cloudFormation.launch"
+  pass_all_args="true"/>
 
 
 </launch>
