@@ -8,6 +8,7 @@ import numpy as np
 from inference_engine import TensorRTInfer
 from scipy.io import loadmat
 import copy
+import os
 
 def unique(ar, return_index=False, return_inverse=False, return_counts=False):
     ar = np.asanyarray(ar).flatten()
@@ -72,23 +73,23 @@ class image_converter:
  def __init__(self):
     self.bridge = CvBridge()
     # print
-    rospy.Subscriber('/zedm/zed_node/left/image_rect_color', Image, self.callback1)
+    rospy.Subscriber('/zedm/zed_node/left_raw/image_raw_color', Image, self.callback1)
 
     # rospy.Subscriber('/tesse/left_cam/rgb/image_raw', Image,self.callback1)
     print('Loading model')
     # self.sem_engine = TensorRTInfer('/seg_workspace/hrnet_engine.trt')
-    self.sem_engine = TensorRTInfer('/seg_workspace/hrnet_zedm_engine.trt')
+    self.sem_engine = TensorRTInfer('/seg_workspace/hrnet_1new.trt')
     print('Model loaded')
     self.warmup_model()
     print('Warmup done')
     self.colors = loadmat('data/color150.mat')['colors']
     # self.colors = np.load('tesse_color_mat.npy')
     self.sem_image = None
-    self.pub = rospy.Publisher('sem_image', Image, queue_size=1)
+    self.pub = rospy.Publisher('sem_image', Image, queue_size=300)
 
  def warmup_model(self):
     for i in range(10):
-        cv_image_RGB = np.random.rand(360,640,3)
+        cv_image_RGB = np.random.rand(376,672,3)
         rgb_image = np.array(cv_image_RGB)
         # print('1')
         
@@ -109,6 +110,7 @@ class image_converter:
     cv_image_RGB = self.bridge.imgmsg_to_cv2(imgRGB, "bgr8")
     # print('01')
     rgb_image = np.array(cv_image_RGB)/255.0
+    # print(rgb_image.shape)
     # print('1')
     
     # # Normalize using the provided means and stds
@@ -122,6 +124,7 @@ class image_converter:
     pred = self.sem_engine.infer(rgb_image)[0][0]
     pred = np.int32(pred)
     pred_color = colorEncode(pred, self.colors).astype(np.uint8)
+    # print(pred_color.shape)
 
     pred_color_msg = self.bridge.cv2_to_imgmsg(pred_color, "bgr8")
     pred_color_msg.header = imgRGB.header
