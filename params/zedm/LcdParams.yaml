@@ -3,7 +3,7 @@
 use_nss: 1
 alpha: 0.1
 min_temporal_matches: 2
-recent_frames_window: 50
+recent_frames_window: 1000
 max_db_results: 50
 min_nss_factor: 0.005
 min_matches_per_island: 1
